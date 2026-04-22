@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma liste de courses</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- BLOC 1 : En-tête -->
+    <header class="app-header">
+      <h1>Ma liste de courses</h1>
+    </header>
+
+    <!-- BLOC 2 : Formulaire d'ajout -->
+    <form id="form-ajout" class="form-ajout">
+      <input
+        type="text"
+        id="input-article"
+        placeholder="Ajouter un article…"
+        autocomplete="off"
+      >
+      <select id="select-categorie">
+        <option value="Légumes">Légumes</option>
+        <option value="Fruits">Fruits</option>
+        <option value="Boissons">Boissons</option>
+        <option value="Épicerie">Épicerie</option>
+        <option value="Autre">Autre</option>
+      </select>
+      <button class="btn-ajouter " type="submit">+</button>
+    </form>
+
+    <!-- BLOC 3 : Filtres -->
+    <nav class="filtres">
+      <button class="filtre actif" data-filtre="tous">Tous</button>
+      <button class="filtre" data-filtre="a-acheter">À acheter</button>
+      <button class="filtre" data-filtre="achetes">Achetés</button>
+    </nav>
+
+    <!-- BLOC 4 : Liste des articles (vide — remplie par JS) -->
+    <ul id="liste-articles" style="padding: 0 10px;">
+      <!-- Les <li> seront injectés ici par JavaScript -->
+    </ul>
+
+    <!-- BLOC 5 : Pied de page / compteur -->
+    <footer class="app-footer">
+      <span class="compteur" id="compteur">0 article restant</span>
+      <button class="btn-supprimer " id="btn-effacer-tout">Tout effacer</button>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

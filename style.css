@@ -1,0 +1,249 @@
+/* ============================================
+   1. RESET & VARIABLES GLOBALES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --couleur-primaire: #3a3a3b;
+  --couleur-danger:   #e24b4a;
+  --couleur-texte:    #1a1a1a;
+  --couleur-muted:    #888888;
+  --couleur-bordure:  #e2e0d8;
+  --couleur-fond:     #fafaf8;
+  --rayon:            5px;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #252525;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+
+/* ============================================
+   2. CONTENEUR PRINCIPAL
+   ============================================ */
+
+.app-container {
+  background: #fffffff8;
+  border-radius: 16px;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+}
+
+
+/* ============================================
+   3. EN-TÊTE
+   ============================================ */
+
+.app-header {
+  background: var(--couleur-primaire);
+  padding: 20px 20px;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.app-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+/* ============================================
+   4. FORMULAIRE D'AJOUT
+   ============================================ */
+
+.app-body {
+  padding: 16px;
+}
+
+.form-ajout {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 0 5px;
+}
+
+.form-ajout input {
+  flex: 1;
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 10px 14px;
+  font-size: 14px;
+  background: var(--couleur-fond);
+  color: var(--couleur-texte);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-ajout input:focus {
+  border-color: var(--couleur-primaire);
+}
+#select-categorie{
+   font-size: 12px;
+   outline: none;
+   cursor: pointer;
+   border-radius: var(--rayon);
+}
+.btn-ajouter {
+  background: var(--couleur-primaire);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--rayon);
+  padding: 10px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 44px;   /* taille tactile mobile */
+  min-height: 44px;
+  transition: opacity 0.15s;
+}
+
+.btn-ajouter:hover { opacity: 0.88; }
+.btn-ajouter:active { transform: scale(0.97); }
+
+
+/* ============================================
+   5. FILTRES
+   ============================================ */
+
+.filtres {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+  margin-left: 5px;
+}
+
+.filtre {
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--couleur-bordure);
+  background: transparent;
+  color: var(--couleur-muted);
+  cursor: pointer;
+  min-height: 32px;
+  transition: all 0.15s;
+}
+
+.filtre.actif {
+  background: var(--couleur-primaire);
+  color: #ffffff;
+  border-color: var(--couleur-primaire);
+}
+
+.filtre:hover:not(.actif) {
+  border-color: var(--couleur-primaire);
+  color: var(--couleur-primaire);
+}
+
+
+/* ============================================
+   6. LISTE DES ARTICLES
+   ============================================ */
+
+.liste-articles {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+.article-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 0.5px solid var(--couleur-bordure);
+}
+
+/* Checkbox stylisée */
+.article-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--couleur-primaire);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* Texte de l'article */
+.article-nom {
+  flex: 1;
+  font-size: 15px;
+  color: var(--couleur-texte);
+}
+
+/* Texte barré quand l'article est coché */
+.article-nom.barre {
+  text-decoration: line-through;
+  color: var(--couleur-muted);
+}
+.badge-categorie {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: #f0ede8;
+  color: #5f5e5a;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+/* Bouton supprimer */
+.btn-supprimer {
+  background: none;
+  border: none;
+  color: var(--couleur-bordure);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  min-width: 32px;
+  min-height: 32px;
+  transition: all 0.15s;
+}
+
+.btn-supprimer:hover {
+  color: var(--couleur-danger);
+  background: #fff0f0;
+}
+
+
+/* ============================================
+   7. PIED DE PAGE (compteur)
+   ============================================ */
+
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 0.5px solid var(--couleur-bordure);
+  background: var(--couleur-fond);
+}
+
+.compteur {
+  font-size: 13px;
+  color: var(--couleur-muted);
+}
+
+#btn-effacer-tout {
+  font-size: 13px;
+  color: var(--couleur-danger);
+  background: none;
+  border: 1px solid var(--couleur-danger);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+#btn-effacer-tout:hover {
+  background: #fff0f0;
+}
